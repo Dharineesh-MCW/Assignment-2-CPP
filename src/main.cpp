@@ -205,6 +205,7 @@ void processLayer(const json& layer, std::vector<std::vector<std::vector<float>>
         float val = -1.0;
         int ind = -1;
         std::cout << "Output size: " << output.size() << "\n";
+        if(output.size() == 10){
         for (int i = 0; i < output.size(); ++i) {
             std::cout << output[i] << " ";
             if(output[i] > val){
@@ -212,7 +213,9 @@ void processLayer(const json& layer, std::vector<std::vector<std::vector<float>>
                 ind = i;
             }
         }
-        std::cout <<"\n index of the class-- " <<  ind << "\n";
+        std::cout <<"\n index of the class : " <<  ind << "\n";
+        }
+        
     } else {
         std::cerr << "Unknown layer type: " << type << std::endl;
     }
