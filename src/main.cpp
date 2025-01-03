@@ -122,15 +122,7 @@ void processLayer(const json& layer, std::vector<std::vector<std::vector<float>>
         // Print the output to verify
         std::cout << "First element after batch normalization: " << output[0][0][0] << std::endl;
 
-        // for(auto & i : input){
-        //     for(auto & j : i){
-        //         for(auto & k : j){
-        //             std::cout << k << " ";
-        //         }
-        //         std::cout<<"\n";
-        //     }
-        //     std::cout<<"\n";
-        // }
+       
         std::cout << "Batch operation completed successfully. " << std::endl;
     } else if (type == "MaxPooling2D") {
         std::cout << "Performing MaxPooling2D operation.\n";
@@ -141,8 +133,7 @@ void processLayer(const json& layer, std::vector<std::vector<std::vector<float>>
         std::vector<int> strides = layer["attributes"]["strides"];                 // [stride_height, stride_width]
         std::string padding = layer["attributes"]["padding"];                      // Padding type
 
-        // Example input data (32x32x64 flattened to a vector of floats)
-        // std::vector<float> input(32 * 32 * 64, 1.0f);  // Example input, all values set to 1.0f
+        
 
         // Instantiate the MaxPooling2D layer
         MaxPooling2D maxPoolingLayer(inputShape, outputShape, strides, padding);
@@ -153,32 +144,7 @@ void processLayer(const json& layer, std::vector<std::vector<std::vector<float>>
         // Apply max pooling
         maxPoolingLayer.applyPooling(input, output);
         input = output;
-        // for(auto & i : output){
-        //     for(auto & j : i){
-        //         for(auto & k : j){
-        //             std::cout << k << " ";
-        //         }
-        //         std::cout<<"\n";
-        //     }
-        //     std::cout<<"------------------------------------------------------------------------\n\n\n\n";
-        // }
-
-        // Display output shape
-        // std::cout << "Output shape: "
-        //         << output.size() << " x "
-        //         << output[0].size() << " x "
-        //         << output[0][0].size() << "\n";
-
-        // // Optionally, print the output values (for verification)
-        // std::cout << "Output values (first 10 elements): \n";
-        // for (int i = 0; i < std::min(10, static_cast<int>(output.size())); ++i) {
-        //     for (int j = 0; j < std::min(10, static_cast<int>(output[i].size())); ++j) {
-        //         for (int k = 0; k < std::min(10, static_cast<int>(output[i][j].size())); ++k) {
-        //             std::cout << output[i][j][k] << " ";
-        //         }
-        //         std::cout << "\n";
-        //     }
-        // }
+        
         std::cout << "maxpooling done -----------" << "\n";
 
         
